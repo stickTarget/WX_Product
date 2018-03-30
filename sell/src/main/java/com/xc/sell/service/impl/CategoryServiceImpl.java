@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
+ * 类目
  * create by 姜 sir
  * 2018/3/29 10:27
  */
@@ -30,15 +31,9 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public List<ProductCategory> findByCategoryType(List<Integer> list) {
+    public List<ProductCategory> findByCategoryTypeIn(List<Integer> list) {
         return repository.findByCategoryTypeIn(list);
     }
-
-    @Override
-    public void delete(Integer id) {
-        repository.delete(id);
-    }
-
     @Override
     public ProductCategory save(ProductCategory productCategory) {
         return repository.save(productCategory);

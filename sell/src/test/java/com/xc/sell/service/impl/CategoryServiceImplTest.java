@@ -40,17 +40,12 @@ public class CategoryServiceImplTest {
     }
 
     @Test
-    public void findByCategoryType() {
-        List<ProductCategory> result = categoryService.findByCategoryType(Arrays.asList(1,2,3,4));
+    public void findByCategoryTypeIn() {
+        List<ProductCategory> result = categoryService.findByCategoryTypeIn(Arrays.asList(1,2,3,4));
         System.out.println(result.size());
         Assert.assertNotEquals(0,result.size());
     }
 
-    @Test
-    @Transactional
-    public void delete() {
-        categoryService.delete(3);
-    }
 
     @Test
     public void save() {
