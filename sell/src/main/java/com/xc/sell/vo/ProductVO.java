@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 public class ProductVO {
 
     @JsonProperty("id")
-    private Integer productId;
+    private String productId;
 
     @JsonProperty("name")
     private String productName;

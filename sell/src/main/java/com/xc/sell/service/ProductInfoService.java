@@ -1,6 +1,7 @@
 package com.xc.sell.service;
 
 import com.xc.sell.dataobject.ProductInfo;
+import com.xc.sell.dto.CatDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -22,6 +23,8 @@ public interface ProductInfoService {
     ProductInfo save(ProductInfo productInfo);
 
     //增加库存
+    void increaseStock(List<CatDTO> catDTOList);
 
     //减少库存
+    void decreaseStock (List<CatDTO> catDTOList);
 }
