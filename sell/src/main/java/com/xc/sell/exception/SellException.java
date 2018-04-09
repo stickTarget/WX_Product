@@ -3,11 +3,11 @@ package com.xc.sell.exception;
 import com.xc.sell.enums.ResultEnum;
 
 /**
- *自定义异常
+ * 自定义异常
  * create by 姜 sir
  * 2018/4/3 9:49
  */
-public class SellException extends RuntimeException{
+public class SellException extends RuntimeException {
 
     private Integer code;
 
@@ -16,5 +16,10 @@ public class SellException extends RuntimeException{
 
         this.code = resultEnum.getCode();
 
+    }
+
+    public SellException(Integer code, String msg) {
+        super(msg);
+        this.code = code;
     }
 }

@@ -4,8 +4,8 @@ import com.xc.sell.dataobject.OrderDetail;
 import com.xc.sell.dto.OrderDTO;
 import org.hibernate.criterion.Order;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
-import java.awt.print.Pageable;
 
 /**
  * 订单
@@ -18,7 +18,7 @@ public interface OrderService {
     OrderDTO create(OrderDTO orderDTO);
 
     /**查询订单. */
-    OrderDTO findOne(String orderIds);
+    OrderDTO findOne(String orderId);
 
     /** 查询订单列表. */
     Page<OrderDTO> findList(String buyerOpenid, Pageable pageable);

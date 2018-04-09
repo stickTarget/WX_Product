@@ -1,12 +1,16 @@
 package com.xc.sell.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.xc.sell.dataobject.OrderDetail;
 import com.xc.sell.dataobject.OrderMaster;
 import com.xc.sell.enums.OrderStatusEnum;
 import com.xc.sell.enums.PayStatusEnum;
+import com.xc.sell.utils.serializer.Date2LongSerializer;
 import lombok.Data;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -15,6 +19,8 @@ import java.util.List;
  * 2018/4/3 9:36
  */
 @Data
+/*@JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)*/
+/*@JsonInclude(JsonInclude.Include.NON_NULL)*/
 public class OrderDTO {
     private String orderId;
 
@@ -38,11 +44,14 @@ public class OrderDTO {
 
     /** 支付状态默认0,未支付. */
     private Integer payStatus;
+
     /** 创建时间. */
+    @JsonSerialize(using = Date2LongSerializer.class)
     private Date createTime;
 
     /** 更新时间. */
+    @JsonSerialize(using = Date2LongSerializer.class)
     private  Date updateTime;
 
-    List<OrderDetail> orderDetailList;
+    List<OrderDetail> orderDetailList = new ArrayList<>();
 }
