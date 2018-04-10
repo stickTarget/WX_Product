@@ -1,11 +1,7 @@
 package com.xc.sell.dto;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.xc.sell.dataobject.OrderDetail;
-import com.xc.sell.dataobject.OrderMaster;
-import com.xc.sell.enums.OrderStatusEnum;
-import com.xc.sell.enums.PayStatusEnum;
 import com.xc.sell.utils.serializer.Date2LongSerializer;
 import lombok.Data;
 
