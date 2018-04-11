@@ -39,7 +39,5 @@ public class PayServiceImplTest {
         //微信退款需要证书
         OrderDTO orderDTO =orderService.findOne("112112");
         payService.refund(orderDTO);
-
-
     }
 }
