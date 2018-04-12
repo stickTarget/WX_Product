@@ -15,6 +15,7 @@ import com.xc.sell.repository.OrderMasterRepository;
 import com.xc.sell.service.OrderService;
 import com.xc.sell.service.PayService;
 import com.xc.sell.service.ProductInfoService;
+import com.xc.sell.service.PushMessageService;
 import com.xc.sell.utils.KeyUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -51,6 +52,12 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private PayService payService;
+
+    @Autowired
+    private PushMessageService pushMessageService;
+
+    @Autowired
+    private WebSocket webSocket;
 
     @Override
     @Transactional
@@ -95,6 +102,9 @@ public class OrderServiceImpl implements OrderService {
         ).collect(Collectors.toList());
 
         productInfoService.decreaseStock(catDTOList);
+
+        //发送webstock消息
+        webSocket.sendMessage(orderDTO.getOrderId());
 
         return orderDTO;
     }
@@ -182,7 +192,8 @@ public class OrderServiceImpl implements OrderService {
             log.error("【完结订单】 更新失败 orderMaster={}", orderMaster);
             throw new SellException(ResultEnum.ORDER_UPDATE_FAIL);
         }
-
+        //推送微信模板消息
+        pushMessageService.orderStatus(orderDTO);
         return orderDTO;
     }
 
