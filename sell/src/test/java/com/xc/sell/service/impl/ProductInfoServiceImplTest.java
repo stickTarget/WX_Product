@@ -1,6 +1,7 @@
 package com.xc.sell.service.impl;
 
 import com.xc.sell.dataobject.ProductInfo;
+import com.xc.sell.enums.ProductStatusEnum;
 import com.xc.sell.service.ProductInfoService;
 import org.junit.Assert;
 import org.junit.Test;
@@ -61,5 +62,17 @@ public class ProductInfoServiceImplTest {
         productInfo.setCategoryType(1);
         ProductInfo result = service.save(productInfo);
         Assert.assertNotNull(result);
+    }
+
+    @Test
+    public void onSale() {
+        ProductInfo productInfo = service.onSale("123123");
+        Assert.assertEquals(ProductStatusEnum.UP,productInfo.getProductStatus() );
+    }
+
+    @Test
+    public void offSale() {
+        ProductInfo productInfo = service.onSale("123123");
+        Assert.assertEquals(ProductStatusEnum.DOWN,productInfo.getProductStatus() );
     }
 }
