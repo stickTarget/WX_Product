@@ -2,6 +2,7 @@ package com.xc.sell.dataobject;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.xc.sell.enums.ProductStatusEnum;
+import com.xc.sell.form.ProductForm;
 import com.xc.sell.utils.EnumUtil;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
@@ -34,8 +35,6 @@ public class ProductInfo {
     /** 商品库存*/
     private Integer productStock;
 
-
-
     /** 商品描述*/
     private String productDescription;
 
@@ -43,7 +42,7 @@ public class ProductInfo {
     private String productIcon;
 
     /** 商品状态 0.上架 1.下架*/
-    private Integer productStatus;
+    private Integer productStatus= ProductStatusEnum.UP.getCode();
 
     /** 商品类型*/
     private Integer categoryType;
