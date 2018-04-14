@@ -1,6 +1,7 @@
 package com.xc.sell.service;
 
 import com.xc.sell.dataobject.ProductCategory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 

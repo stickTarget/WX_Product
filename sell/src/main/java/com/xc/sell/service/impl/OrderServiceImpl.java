@@ -9,6 +9,7 @@ import com.xc.sell.dto.OrderDTO;
 import com.xc.sell.enums.OrderStatusEnum;
 import com.xc.sell.enums.PayStatusEnum;
 import com.xc.sell.enums.ResultEnum;
+import com.xc.sell.exception.ResponseBankException;
 import com.xc.sell.exception.SellException;
 import com.xc.sell.repository.OrderDetailRepository;
 import com.xc.sell.repository.OrderMasterRepository;
@@ -74,6 +75,7 @@ public class OrderServiceImpl implements OrderService {
             ProductInfo productInfo = productInfoService.findOne(orderDetail.getProductId());
             if (productInfo == null) {
                 throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+               // throw new ResponseBankException();
             }
 
             //2.计算总价

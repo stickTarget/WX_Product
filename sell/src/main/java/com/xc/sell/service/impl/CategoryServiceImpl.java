@@ -1,6 +1,7 @@
 package com.xc.sell.service.impl;
 
 import com.xc.sell.dataobject.ProductCategory;
+import com.xc.sell.dataobject.dao.PrdouctCategoryDao;
 import com.xc.sell.repository.ProductCategoryRepository;
 import com.xc.sell.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,9 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Autowired
     private ProductCategoryRepository repository;
+
+    @Autowired
+    private PrdouctCategoryDao prdouctCategoryDao;
 
 
     @Override
